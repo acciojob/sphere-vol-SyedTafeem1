@@ -5,13 +5,12 @@ function volume_sphere() {
 
     let volume;
 
-    if (radius < 0) {
-        volume = NaN;
+    if (isNaN(radius) || radius < 0) {
+        document.getElementById("volume").value = "";
     } else {
         volume = (4 / 3) * Math.PI * radius * radius * radius;
+        document.getElementById("volume").value = volume.toFixed(4);
     }
-
-    document.getElementById("volume").value = volume.toFixed(4);
 
     return false;
 }
@@ -19,3 +18,4 @@ function volume_sphere() {
 window.onload = function () {
     document.getElementById("MyForm").onsubmit = volume_sphere;
 };
+
